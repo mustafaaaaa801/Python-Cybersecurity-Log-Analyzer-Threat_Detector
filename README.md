@@ -1,12 +1,45 @@
 PCLATD - Python Cybersecurity Log Analyzer & Threat Detector
 
-تشغيل سريع:
-1. ثبت المتطلبات:
-   pip install pandas matplotlib python-dateutil
+Quick Start:
 
-2. شغّل:
-   python3 main.py --auth sample_logs/auth.log --apache sample_logs/access.log --blocklist sample_logs/blocklist.txt
+Install dependencies:
 
-النتيجة: ملف JSON في مجلد reports وملف صورة dashboard.
-شغل مود ال real time monitor :
+pip install pandas matplotlib python-dateutil
+
+
+Run normal analysis:
+
+python3 main.py --auth sample_logs/auth.log --apache sample_logs/access.log --blocklist sample_logs/blocklist.txt
+
+
+Output: JSON report file in reports/ and a dashboard image.
+
+Run in real-time monitoring mode:
+
 python main.py --auth sample_logs/auth.log --apache sample_logs/access.log --blocklist sample_logs/blocklist.txt --realtime
+
+
+Project Structure:
+
+pclatd/
+    main.py
+    parsers/
+        __init__.py
+        auth_parser.py
+        apache_parser.py
+    detectors/
+        __init__.py
+        brute_force.py
+        ti_checker.py
+    reports/
+        __init__.py
+        reporter.py
+        dashboard.py
+    utils/
+        __init__.py
+        regex_patterns.py
+        file_loader.py
+    sample_logs/
+        auth.log
+        access.log
+    README.md
